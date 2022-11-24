@@ -1,0 +1,15 @@
+# .github/
+#      workflows/
+#              main.yml
+name: my first workflow              # workflow name
+on: push                             # event trigger on push
+
+jobs:
+  build:                             # job id
+    name: Hello world action         # job name
+    runs-on: ubuntu-latest           # virtual machine
+    steps:
+    - name: checkout source code     # step 01 name
+      uses: actions/checkout@master  # source_code checkout
+    - name: say hello                # step 02 name
+      run: echo "hello world"        # linux command execute
