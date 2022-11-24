@@ -1,15 +1,12 @@
-# .github/
-#      workflows/
-#              main.yml
-name: my first workflow              # workflow name
-on: push                             # event trigger on push
+on: push
 
 jobs:
-  build:                             # job id
-    name: Hello world action         # job name
-    runs-on: ubuntu-latest           # virtual machine
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-    - name: checkout source code     # step 01 name
-      uses: actions/checkout@master  # source_code checkout
-    - name: say hello                # step 02 name
-      run: echo "hello world"        # linux command execute
+    - name: Hello world action step
+      id: hello
+      uses: kainzs/hello-world-docker-action@main
+      with:
+        who-to-greet: 'Mona the Octocat'
